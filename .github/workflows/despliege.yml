@@ -1,0 +1,12 @@
+name: Desplegar automáticamente
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  desplegar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Disparar despliegue en Vercel
+        run: curl -X POST ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
